@@ -1,0 +1,13 @@
+<div class="outerWrapper" *ngIf="post && open">
+    <div class="post-details-modal">
+            <div class="editPost">
+                <h1>Edit Post <strong>{{post.title}}</strong></h1>
+                <div class="inputs">
+                    <input type="text" [(ngModel)]="post.title" />
+                    <textarea [(ngModel)]="post.body" ></textarea>
+                </div>
+            </div>
+            <button (click)="edit()">Edit</button>
+    </div>
+    <div class="wrapper"  (click)="close($event)"></div>
+</div>

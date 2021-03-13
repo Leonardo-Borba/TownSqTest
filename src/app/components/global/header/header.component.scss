@@ -1,0 +1,18 @@
+@import '../../../../global-style/mixins.scss';
+
+.top-banner {
+    @include main-gradient;
+    height: 40vh;
+    margin-top: 5rem;
+    clip-path: polygon(100% 0px, 0px 0px, 0px 75%, 50% 100%, 100% 75%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    h1 {
+        @include whiteHeadline;
+    }
+    .subtitle {
+        @include subtitle;
+    }
+}

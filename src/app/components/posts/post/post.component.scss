@@ -1,0 +1,29 @@
+@import '../../../../global-style/mixins.scss';
+
+.post {
+    @include soft-shadow;
+    max-width    : 100%;
+    padding      : 3rem;
+    height       : 100%;
+    margin-bottom: 1rem;
+    position     : relative;
+    cursor       : pointer;
+    transition   : box-shadow .4s;
+
+    header h6 {
+        font-size     : 1.2rem;
+        font-weight   : bold;
+        text-transform: capitalize;
+        padding-bottom: 1rem;
+        color         : var(--secondary-color);
+        transition    : color 1s;
+    }
+
+    &:hover {
+        @include strong-shadow;
+
+        header h6 {
+            color: var(--primary-color);
+        }
+    }
+}

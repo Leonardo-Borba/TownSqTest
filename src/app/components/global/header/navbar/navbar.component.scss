@@ -1,0 +1,39 @@
+@import '../../../../../global-style/mixins.scss';
+
+.header {
+    width     : 100%;
+    background: var(--primary-color);
+    display   : flex;
+    position  : fixed;
+    min-height: 5rem;
+    z-index: 10;
+
+    .header-nav {
+        @include left-rigth-padding;
+        @include soft-shadow;
+        width          : 100%;
+        display        : flex;
+        justify-content: space-between;
+        align-items    : center;
+        
+        .site-logo-wrapper {
+            height: max-content;
+
+            .site-logo {
+                @include bold-white;
+                text-decoration: none;
+                font-size      : 2rem;
+                display        : block;
+            }
+        }
+    }
+
+    .header-links {
+        @include bold-white;
+        list-style-type: none;
+        display: flex;
+        li {
+            @include left-rigth-padding(10px);
+        }
+    }
+}

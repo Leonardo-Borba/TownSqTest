@@ -1,0 +1,60 @@
+@mixin left-rigth-padding($size: 10px) {
+    padding-right: $size;
+    padding-left: $size;
+}
+
+@mixin bold-white {
+    color: white;
+    font-weight: bold;
+}
+
+@mixin main-gradient {
+    background: linear-gradient(0deg, var(--tertiary-color) 0%, var(--primary-color) 100%);
+}
+
+@mixin soft-shadow {
+    box-shadow: 2px 5px 8px 1px rgba(0, 0, 0, 0.1); 
+}
+
+@mixin strong-shadow {
+    box-shadow: 2px 5px 8px 1px rgba(0, 0, 0, 0.3); 
+}
+
+@mixin whiteHeadline($size: 5rem) {
+    @include bold-white;
+    font-size: $size;
+    text-transform: uppercase;
+}
+
+@mixin subtitle {
+    color: white;
+    font-style: italic;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+}
+
+
+
+@mixin at-xl-screen {
+    @media (min-width: 1500px)  {
+        @content;
+    }
+}
+
+@mixin at-l-screen {
+    @media (max-width: 1499px) and (min-width: 1000px)  {
+        @content;
+    }
+}
+
+@mixin at-s-screen {
+    @media (max-width: 999px)  {
+        @content;
+    }
+}
+
+@mixin at-xs-screen {
+    @media (max-width: 620px) {
+        @content;
+    }
+}

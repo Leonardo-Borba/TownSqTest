@@ -1,0 +1,4 @@
+    <article *ngIf="!!post" class="post" (click)="handleClick()">
+        <header><h6>{{post.title}}</h6></header>
+        <div>{{post.body}}</div>
+    </article>
