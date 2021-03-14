@@ -1,3 +1,4 @@
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
 @import 'reset-css';
 
 * {
@@ -17,3 +18,5 @@
     --tertiary-color: #52B69A;
     --error-color: #EE6055;
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
