@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   API_BASE_URL: "http://jsonplaceholder.typicode.com/",
-  POSTS: "posts/"
+  POSTS: "posts/",
+  USERS: "users/"
 };
 
 /*
