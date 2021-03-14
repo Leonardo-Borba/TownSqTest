@@ -11,6 +11,12 @@
     flex-direction: column;
     h1 {
         @include whiteHeadline;
+        @include at-s-screen {
+            font-size: 4rem;
+        }
+        @include at-xs-screen {
+            font-size: 2.4rem;
+        }
     }
     .subtitle {
         @include subtitle;
