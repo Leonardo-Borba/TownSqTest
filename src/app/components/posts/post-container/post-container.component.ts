@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { Subject } from 'rxjs';
 import { Post } from 'src/app/models/Post';
 import { PostStoreService } from 'src/app/services/stores/PostStore.service';
@@ -16,9 +17,10 @@ export class PostContainerComponent implements OnInit {
   slice = 6;
   datasetSize = 0;
 
-  constructor(private postStore: PostStoreService) { }
+  constructor(private postStore: PostStoreService, private titleService: Title) { }
 
   ngOnInit(): void {
+    this.titleService.setTitle("Read All Posts")
     this.postStore.posts$.subscribe(data => {
       this.datasetSize = data.length;
       this.allPosts = data;
