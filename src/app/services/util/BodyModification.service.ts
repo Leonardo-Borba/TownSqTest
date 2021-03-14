@@ -8,7 +8,7 @@ export class BodyModificationService {
 
   private renderer: Renderer2;
 
-constructor(private rendererFactory: RendererFactory2, @Inject(DOCUMENT) private document: Document) { 
+constructor(rendererFactory: RendererFactory2, @Inject(DOCUMENT) private document: Document) { 
   this.renderer = rendererFactory.createRenderer(null, null);
 }
 
