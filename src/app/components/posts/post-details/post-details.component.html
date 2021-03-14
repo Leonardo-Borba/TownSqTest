@@ -1,13 +1,38 @@
 <div class="outerWrapper" *ngIf="post && open">
     <div class="post-details-modal">
-            <div class="editPost">
-                <h1>Edit Post <strong>{{post.title}}</strong></h1>
+     <div class="buttons">
+      <button class="edit-icon" (click)="toggleEdit()">
+        <mat-icon aria-hidden="false" >{{isEditing?  "edit_off" : "mode_edit" }}</mat-icon>
+      </button>
+      <button class="close-icon" (click)="close($event)">
+        <mat-icon aria-hidden="false" >close</mat-icon>
+      </button>
+     </div>
+            <div class="editPost" *ngIf="isEditing; else details">
+                <h1 class="post-title">Edit Post <strong>{{post.title}}</strong></h1>
                 <div class="inputs">
-                    <input type="text" [(ngModel)]="post.title" />
-                    <textarea [(ngModel)]="post.body" ></textarea>
+                        <mat-form-field >
+                          <mat-label>Title</mat-label>
+                          <input matInput [(ngModel)]="post.title">
+                        </mat-form-field>
+                      
+                        <mat-form-field >
+                          <mat-label>Body</mat-label>
+                          <textarea matInput [(ngModel)]="post.body"></textarea>
+                        </mat-form-field>
                 </div>
+                <button (click)="edit()">Edit</button>
             </div>
-            <button (click)="edit()">Edit</button>
+            <ng-template #details>
+              <div class="post_details">
+                <h1 class="post-title">{{post.title}}</h1>
+                <div>
+                  <p class="post-body">{{post.body}}</p>
+                </div>
+              </div>
+            </ng-template>
+
+            <app-author [authorId]="post.userId"></app-author>
     </div>
     <div class="wrapper"  (click)="close($event)"></div>
 </div>

@@ -8,29 +8,47 @@
     flex-direction: column;
     margin-top     : 4rem;
 
-    .post-container {
-        width                : 80%;
-        display              : grid;
-        column-gap           : 1rem;
-        
-        @include at-xl-screen {
-            grid-template-columns: repeat(4, 23.8%);
+    .posts-container-outer-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .post-container {
+            width                : 80%;
+            display              : grid;
+            column-gap           : 1rem;
+            
+            @include at-xl-screen {
+                grid-template-columns: repeat(4, 23.8%);
+            }
+            @include at-l-screen {
+                grid-template-columns: repeat(3, 32%);
+            }
+            @include at-s-screen {
+                grid-template-columns: repeat(2, 49%);
+            }
+            @include at-xs-screen {
+                display: flex;
+                width: 90vw;
+                flex-direction: column;
+            }
+            app-post {
+                margin-bottom: 1rem;
+            }
         }
-        @include at-l-screen {
-            grid-template-columns: repeat(3, 32%);
-        }
-        @include at-s-screen {
-            grid-template-columns: repeat(2, 49%);
-        }
-        @include at-xs-screen {
-            display: flex;
-            width: 90vw;
-            flex-direction: column;
-        }
-        app-post {
-            margin-bottom: 1rem;
+        .load-more-button {
+            @include bold-white;
+            @include left-rigth-padding($size: 20px);
+            background-color: var(--primary-color);
+            border: 0;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            border-radius: 5px;
+            cursor: pointer;
         }
     }
+
     .post-container-title {
         @include whiteHeadline(2rem);
         color: var(--primary-color);

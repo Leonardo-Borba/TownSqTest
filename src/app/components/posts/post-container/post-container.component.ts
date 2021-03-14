@@ -10,17 +10,28 @@ import { PostStoreService } from 'src/app/services/stores/PostStore.service';
 })
 export class PostContainerComponent implements OnInit {
 
+  allPosts: Post[] = [];
   posts: Post[] = [];
   post$: Subject<Post> = new Subject();
+  slice = 6;
+  datasetSize = 0;
 
   constructor(private postStore: PostStoreService) { }
 
   ngOnInit(): void {
-    this.postStore.posts$.subscribe(data => this.posts = data)
+    this.postStore.posts$.subscribe(data => {
+      this.datasetSize = data.length;
+      this.allPosts = data;
+      this.posts = data.slice(0, this.slice)
+    })
   }
 
   handlePostClicked(post: Post){
     this.post$.next({...post});
   }
 
+  increaseSlice(){
+    this.slice += 10;
+    this.posts = this.allPosts.slice(0, this.slice)
+  }
 }

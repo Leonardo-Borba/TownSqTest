@@ -13,6 +13,7 @@ export class PostDetailsComponent implements OnInit {
 
   post!: Post; 
   open = false;
+  isEditing = false;
 
   constructor(private bodyService: BodyModificationService, private postStore: PostStoreService) { }
 
@@ -43,7 +44,12 @@ export class PostDetailsComponent implements OnInit {
   }
 
   edit(){
+    this.toggleEdit()
     this.postStore.editPost(this.post);
     this.closeInternal();
+  }
+
+  toggleEdit(){
+    this.isEditing = !this.isEditing;
   }
 }
